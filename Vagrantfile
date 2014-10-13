@@ -9,6 +9,11 @@ if `vagrant --version` < 'Vagrant 1.5.0'
     abort('Your Vagrant is too old. Please install at least 1.5.0')
 end
 
+# Github installations are deprecated
+if File.directory?('.git')
+  abort('Use the Quickstart installer instead of installing from github')
+end
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "precise32"
